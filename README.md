@@ -25,15 +25,43 @@ Elle offre une interface intuitive, des outils avancés de correction, un assist
 - 💬 **Chatbot d’aide** (écriture et vocal)
 - 📈 **Statistiques détaillées** (taux de succès, erreurs fréquentes)
 - 🕑 **Historique des modifications**
+----
+## 🛠️ Technologies utilisées
+React (TypeScript)
+Material UI
+Node.js (TypeScript)
+jsPDF
+Recharts
+Ajv (validation JSON Schema)
+Notistack (notifications)
 
 ---
-
 ## 🚀 Lancement du projet
 
 ### Prérequis
 
 - [Node.js](https://nodejs.org/) (v20+)
 - [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
+
+🧑‍💻 * Lancer le front-end
+Dans le dossier racine du projet :
+npm start
+Le front-end sera accessible sur http://localhost:3000 par défaut.
+
+🧑‍💻 * Lancer le back-end
+Dans un autre terminal, placez-vous dans le dossier server :
+cd server
+yarn start
+# et
+npm run start:api
+Le back-end sera accessible sur http://localhost:3001 par défaut.
+
+💡 Astuce : Vous pouvez lancer le front-end et le back-end en parallèle pour profiter de toutes les fonctionnalités.
+
+---
+👤 Auteur
+Kouki Farah
+farah.kouki@esprit.tn 
 
 ### 1. Cloner le dépôt
 
