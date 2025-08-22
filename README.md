@@ -1,4 +1,4 @@
-# 🚦 ClockTree Validator
+# 🕒🗸  ClockTree Checker
 
 
 ![React](https://img.shields.io/badge/React-18.x-61dafb?logo=react)
