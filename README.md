@@ -27,13 +27,13 @@ Elle offre une interface intuitive, des outils avancés de correction, un assist
 - 🕑 Historique des modifications
 ----
 ## 🛠️ Technologies utilisées
-- ⚛️ **React (TypeScript)
-- 🎨 **Material UI
-- 🟩 **Node.js (TypeScript)
-- 📝 **jsPDF
-- 📊 **Recharts
-- 🧩 **Ajv (validation JSON Schema)
-- 🔔 **Notistack (notifications)
+- ⚛️ React (TypeScript)
+- 🎨 Material UI
+- 🟩 Node.js (TypeScript)
+- 📝 jsPDF
+- 📊 Recharts
+- 🧩 Ajv (validation JSON Schema)
+- 🔔 Notistack (notifications)
 
 ---
 ## 🚀 Lancement du projet
@@ -45,7 +45,7 @@ Elle offre une interface intuitive, des outils avancés de correction, un assist
 ##
 🟢 Pour démarrer l’application :
 Lance le front-end avec npm start dans le dossier racine (accessible sur http://localhost:3000), puis, dans un autre terminal, démarre le back-end dans le dossier server avec yarn start ,aussi npm run start:api (accessible sur http://localhost:3001).
-✨💡 Astuce :  Tu peux exécuter les deux en parallèle pour profiter de toutes les fonctionnalités !
+###✨💡 Astuce :  Tu peux exécuter les deux en parallèle pour profiter de toutes les fonctionnalités !
 
 
 ---
