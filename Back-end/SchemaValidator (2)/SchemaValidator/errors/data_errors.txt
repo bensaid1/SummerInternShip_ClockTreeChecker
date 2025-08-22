@@ -1,0 +1,13 @@
+===========================================
+📅 Date : 2025-08-01 12:35:35
+📂 Fichier JSON analysé : data
+===========================================
+
+⚠️ Erreurs détectées lors de la validation JSON :
+
+1. Erreur de lecture ou de parsing du fichier JSON : EISDIR: illegal operation on a directory, read
+
+-------------------------------------------
+Merci de corriger ces erreurs avant de réessayer.
+Pour toute question, contactez farah.kouki@st.com
+===========================================
