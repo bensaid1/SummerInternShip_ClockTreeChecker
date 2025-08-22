@@ -17,14 +17,14 @@ Elle offre une interface intuitive, des outils avancés de correction, un assist
 
 ## 📦 Fonctionnalités principales
 
-- ⚡ **Validation instantanée** de fichiers JSON selon un schéma strict
-- 🛠️ **Édition et correction** des erreurs détectées (auto-fix, édition ligne par ligne)
-- 📊 **Visualisation graphique** du clock tree (graphe interactif)
-- 📝 **Génération de rapports PDF** professionnels
-- 🤖 **Assistant interactif (Smart Guide)** pour la création de fichiers JSON
-- 💬 **Chatbot d’aide** (écriture et vocal)
-- 📈 **Statistiques détaillées** (taux de succès, erreurs fréquentes)
-- 🕑 **Historique des modifications**
+- ⚡ Validation instantanée** de fichiers JSON selon un schéma strict
+- 🛠️ Édition et correction** des erreurs détectées (auto-fix, édition ligne par ligne)
+- 📊 Visualisation graphique** du clock tree (graphe interactif)
+- 📝 Génération de rapports PDF** professionnels
+- 🤖 Assistant interactif (Smart Guide)** pour la création de fichiers JSON
+- 💬 Chatbot d’aide** (écriture et vocal)
+- 📈 Statistiques détaillées** (taux de succès, erreurs fréquentes)
+- 🕑 Historique des modifications**
 ----
 ## 🛠️ Technologies utilisées
 - ⚛️ **React (TypeScript)
