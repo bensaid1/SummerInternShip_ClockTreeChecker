@@ -27,13 +27,13 @@ Elle offre une interface intuitive, des outils avancés de correction, un assist
 - 🕑 **Historique des modifications**
 ----
 ## 🛠️ Technologies utilisées
-React (TypeScript)
-Material UI
-Node.js (TypeScript)
-jsPDF
-Recharts
-Ajv (validation JSON Schema)
-Notistack (notifications)
+- ⚛️ **React (TypeScript)
+- 🎨 **Material UI
+- 🟩 **Node.js (TypeScript)
+- 📝 **jsPDF
+- 📊 **Recharts
+- 🧩 **Ajv (validation JSON Schema)
+- 🔔 **Notistack (notifications)
 
 ---
 ## 🚀 Lancement du projet
