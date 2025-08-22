@@ -43,20 +43,10 @@ Notistack (notifications)
 - [Node.js](https://nodejs.org/) (v20+)
 - [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
 ##
-🧑‍💻 * Lancer le front-end
-Dans le dossier racine du projet :
-npm start
-Le front-end sera accessible sur http://localhost:3000 par défaut.
+🟢 Pour démarrer l’application :
+Lance le front-end avec npm start dans le dossier racine (accessible sur http://localhost:3000), puis, dans un autre terminal, démarre le back-end dans le dossier server avec yarn start ,aussi npm run start:api (accessible sur http://localhost:3001).
+✨💡 Astuce :  Tu peux exécuter les deux en parallèle pour profiter de toutes les fonctionnalités !
 
-🧑‍💻 * Lancer le back-end
-Dans un autre terminal, placez-vous dans le dossier server :
-cd server
-yarn start
-et
-npm run start:api
-Le back-end sera accessible sur http://localhost:3001 par défaut.
-
-💡 Astuce : Vous pouvez lancer le front-end et le back-end en parallèle pour profiter de toutes les fonctionnalités.
 
 ---
 👤 Auteur
