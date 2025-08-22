@@ -1,10 +1,10 @@
 # 🚦 ClockTree Validator
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
 ![React](https://img.shields.io/badge/React-18.x-61dafb?logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-20.x-339933?logo=node.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178c6?logo=typescript)
-![Status](https://img.shields.io/badge/status-Production-brightgreen)
+
 
 ---
 
@@ -42,7 +42,7 @@ Notistack (notifications)
 
 - [Node.js](https://nodejs.org/) (v20+)
 - [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
-
+##
 🧑‍💻 * Lancer le front-end
 Dans le dossier racine du projet :
 npm start
@@ -52,7 +52,7 @@ Le front-end sera accessible sur http://localhost:3000 par défaut.
 Dans un autre terminal, placez-vous dans le dossier server :
 cd server
 yarn start
-# et
+et
 npm run start:api
 Le back-end sera accessible sur http://localhost:3001 par défaut.
 
