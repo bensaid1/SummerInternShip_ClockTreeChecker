@@ -1,0 +1,43 @@
+name: electron-nightly Canary
+
+on:
+  schedule:
+    - cron: "15 8 * * *"
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, macOS-latest, ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # tag: v4.2.2
+        with:
+          repository: electron/minimal-repro
+          ref: refs/heads/main
+          path: minimal-repro
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # tag: v4.4.0
+        with:
+          node-version: lts/*
+      - name: Replace electron with electron-nightly
+        run: |
+          cd minimal-repro
+          npm uninstall --save-dev electron
+          npm install --save-dev electron-nightly@latest
+        shell: bash
+      - name: Install Electron Packager
+        run: |
+          cd minimal-repro
+          npm install --save-dev @electron/packager@electron/packager
+        shell: bash
+      - name: Package
+        run: |
+          cd minimal-repro
+          if [ "${{ matrix.os }}" == "macOS-latest" ]; then
+            node_modules/.bin/electron-packager . --arch=universal
+          else
+            node_modules/.bin/electron-packager . --arch=all
+          fi
+        shell: bash

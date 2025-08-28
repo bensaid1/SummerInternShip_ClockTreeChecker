@@ -1,0 +1,328 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ClockTreeSchema",
+  "type": "object",
+  "required": ["tree"],
+  "properties": {
+    "tree": {
+      "type": "object",
+      "required": ["id", "schema_version", "elements", "transitions"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "elements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "position", "type", "label", "default", "outputTargets", "size"],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "position": {
+                "type": "object",
+                "required": ["x", "y"],
+                "properties": {
+                  "x": { "type": "number" },
+                  "y": { "type": "number" }
+                },
+                "additionalProperties": false
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "fixedSource",
+                  "editableValue",
+                  "discreteValuesSource",
+                  "multiplier",
+                  "divider",
+                  "multiplexor",
+                  "transition",
+                  "variableSource",
+                  "distinctFrequencieOscillator",
+                  "rectangularShape",
+                  "fractionalValue"
+                ]
+              },
+              "label": {
+                "type": "object",
+                "required": ["align", "text"],
+                "properties": {
+                  "align": { "type": "string" },
+                  "text": { "type": "string" }
+                },
+                "additionalProperties": true
+              },
+              "default": {},
+              "role": {
+                "type": ["string", "null"]
+              },
+              "block": {
+                "type": ["string", "null"]
+              },
+              "outputTargets": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "unit": {
+                "type": "object",
+                "properties": {
+                  "text": { "type": "string" },
+                  "factor": { "type": "string" }
+                },
+                "required": ["text", "factor"],
+                "additionalProperties": false
+              },
+              "description": {
+                "type": ["string", "null"]
+              },
+              "size": {
+                "type": "object",
+                "required": ["width", "height"],
+                "properties": {
+                  "width": { "type": "number" },
+                  "height": { "type": "number" }
+                },
+                "additionalProperties": false
+              },
+              "isTrustZone": {
+                "type": "boolean"
+              },
+             "oneOf": {
+  "type": "array",
+  "items": {
+    "oneOf": [
+      { "type": "number" },
+      {
+        "type": "object",
+        "required": ["const"],
+        "properties": {
+          "const": { "type": "number" }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+},
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              },
+              "outOfRange": {
+                "type": "boolean"
+              },
+              "fracDivisor": {
+                "type": "object",
+                "required": ["base", "power"],
+                "properties": {
+                  "base": { "type": "number" },
+                  "power": { "type": "number" }
+                },
+                "additionalProperties": false
+              },
+              "multiplicatorFactor": {
+                "type": "array"
+              },
+              "possible_Input": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["available", "description", "input_Id", "label", "from"],
+                  "properties": {
+                    "available": { "type": "boolean" },
+                    "description": { "type": "string" },
+                    "input_Id": { "type": "string" },
+                    "label": { "type": "string" },
+                    "from": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": { "type": { "enum": ["fixedSource", "editableValue", "multiplier", "variableSource"] } }
+                },
+                "then": {
+                  "required": ["unit", "outputTargets"],
+                  "properties": {
+                    "unit": {
+                      "properties": {
+                        "text": {
+                          "enum": ["MHz", "KHz"]
+                        }
+                      }
+                    },
+                    "outputTargets": {
+                      "minItems": 1
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": { "type": { "enum": ["discreteValuesSource", "distinctFrequencieOscillator", "divider"] } }
+                },
+                "then": {
+                  "required": ["oneOf"]
+                }
+              },
+              {
+                "if": {
+                  "properties": { "type": { "const": "multiplexor" } }
+                },
+                "then": {
+                  "required": ["possible_Input"],
+                  "properties": {
+                    "unit": false
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": { "type": { "const": "rectangularShape" } }
+                },
+                "then": {
+                  "required": ["size"]
+                }
+              },
+              {
+                "if": {
+                  "properties": { "type": { "const": "fractionalValue" } }
+                },
+                "then": {
+                  "required": [
+                    "min",
+                    "max",
+                    "outOfRange",
+                    "fracDivisor",
+                    "multiplicatorFactor"
+                  ],
+                  "properties": {
+                    "min": { "type": "number" },
+                    "max": { "type": "number" },
+                    "outOfRange": { "type": "boolean" },
+                    "fracDivisor": {
+                      "type": "object",
+                      "required": ["base", "power"],
+                      "properties": {
+                        "base": { "type": "number" },
+                        "power": { "type": "number" }
+                      },
+                      "additionalProperties": false
+                    },
+                    "multiplicatorFactor": {
+                      "type": "array"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "required": ["oneOf"]
+                },
+                "then": {
+                  "properties": {
+                    "default": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["default"]
+                },
+                "else": {
+                  "properties": {
+                    "default": {
+                      "oneOf": [
+                        { "type": "number" },
+                        { "type": "string" }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "sourceTaskId", "targetTaskId", "isVirtual"],
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "sourceTaskId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "targetTaskId": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                ]
+              },
+              "isVirtual": {
+                "type": "boolean"
+              },
+              "transitionRoutingPoint": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": ["kind", "x", "y", "pointIndex"],
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": ["linear", "bezier", "arc"]
+                    },
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    },
+                    "pointIndex": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

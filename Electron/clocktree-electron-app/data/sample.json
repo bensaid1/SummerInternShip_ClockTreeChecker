@@ -1,0 +1,406 @@
+{
+  "tree": {
+    "id": "clock_tree_001",
+    "schema_version": "1.0.0",
+    "elements": [
+      {
+        "id": "fixed_1",
+        "name": "fixed source 3",
+        "position": {
+          "x": 10,
+          "y": 20
+        },
+        "type": "fixedSource",
+        "label": {
+          "align": "center",
+          "text": "Fixed 1"
+        },
+        "default": 100,
+        "role": "source",
+        "block": "blockA",
+        "outputTargets": [
+          "editable_1",
+          "multiplexor_1"
+        ],
+        "unit": {
+          "text": "MHz",
+          "factor": "1"
+        },
+        "description": "Fixed frequency source",
+        "size": {
+          "width": 100,
+          "height": 50
+        },
+        "isTrustZone": false
+      },
+      {
+        "id": "editable_1",
+        "name": "Editable Value 1",
+        "position": {
+          "x": 30,
+          "y": 40
+        },
+        "type": "editableValue",
+        "label": {
+          "align": "left",
+          "text": "Editable 1"
+        },
+        "default": 50,
+        "role": "adjustable",
+        "block": "blockB",
+        "outputTargets": [
+          "multiplier_1",
+          "multiplexor_1"
+        ],
+        "unit": {
+          "text": "KHz",
+          "factor": "0.001"
+        },
+        "description": "User editable value",
+        "size": {
+          "width": 80,
+          "height": 40
+        },
+        "isTrustZone": true
+      },
+      {
+        "id": "discrete_1",
+        "name": "Discrete Values Source 1",
+        "position": {
+          "x": 50,
+          "y": 60
+        },
+        "type": "discreteValuesSource",
+        "label": {
+          "align": "right",
+          "text": "Discrete 1"
+        },
+        "oneOf": [
+          10,
+          20,
+          30
+        ],
+        "default": 20,
+        "role": "selector",
+        "block": "blockC",
+        "unit": {
+          "text": "MHz",
+          "factor": "1"
+        },
+        "description": "Discrete frequency selector",
+        "size": {
+          "width": 90,
+          "height": 45
+        },
+        "outputTargets": [
+          "divider_1"
+        ],
+        "isTrustZone": false
+      },
+      {
+        "id": "multiplier_1",
+        "name": "Multiplier 1",
+        "position": {
+          "x": 70,
+          "y": 80
+        },
+        "type": "multiplier",
+        "label": {
+          "align": "center",
+          "text": "Multiplier"
+        },
+        "default": 2,
+        "role": "multiplier",
+        "block": "blockD",
+        "outputTargets": [
+          "multiplexor_1"
+        ],
+        "unit": {
+          "text": "MHz",
+          "factor": "1"
+        },
+        "description": "Frequency multiplier",
+        "size": {
+          "width": 100,
+          "height": 50
+        },
+        "isTrustZone": false
+      },
+      {
+        "id": "divider_1",
+        "name": "Divider 1",
+        "position": {
+          "x": 90,
+          "y": 100
+        },
+        "type": "divider",
+        "label": {
+          "align": "left",
+          "text": "Divider"
+        },
+        "oneOf": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "default": 2,
+        "role": "divider",
+        "block": "blockE",
+        "unit": {
+          "text": "MHz",
+          "factor": "1"
+        },
+        "description": "Frequency divider",
+        "size": {
+          "width": 80,
+          "height": 40
+        },
+        "outputTargets": [
+          "variable_1"
+        ],
+        "isTrustZone": true
+      },
+      {
+        "id": "multiplexor_1",
+        "name": "Multiplexor 1",
+        "position": {
+          "x": 110,
+          "y": 120
+        },
+        "type": "multiplexor",
+        "label": {
+          "align": "right",
+          "text": "Multiplexor"
+        },
+        "default": "",
+        "role": "selector",
+        "block": "blockF",
+        "outputTargets": [
+          "fractional_1",
+          "variable_1"
+        ],
+        "description": "Multiplexor without unit",
+        "size": {
+          "width": 90,
+          "height": 45
+        },
+        "possible_Input": [
+          {
+            "available": true,
+            "description": "Input from fixed source",
+            "input_Id": "fixed_1",
+            "label": "Fixed 1 Input",
+            "from": "fixedSource"
+          },
+          {
+            "available": false,
+            "description": "Input from editable value",
+            "input_Id": "editable_1",
+            "label": "Editable 1 Input",
+            "from": "editableValue"
+          }
+        ],
+        "isTrustZone": false
+      },
+      {
+        "id": "variable_1",
+        "name": "Variable Source 1",
+        "position": {
+          "x": 130,
+          "y": 140
+        },
+        "type": "variableSource",
+        "label": {
+          "align": "center",
+          "text": "Variable Source"
+        },
+        "default": "",
+        "role": "variable",
+        "block": "blockG",
+        "outputTargets": [
+          "distinct_1"
+        ],
+        "unit": {
+          "text": "KHz",
+          "factor": "0.001"
+        },
+        "description": "Variable frequency source",
+        "size": {
+          "width": 100,
+          "height": 50
+        },
+        "isTrustZone": true
+      },
+      {
+        "id": "distinct_1",
+        "name": "Distinct Frequencie Oscillator 1",
+        "position": {
+          "x": 150,
+          "y": 160
+        },
+        "type": "distinctFrequencieOscillator",
+        "label": {
+          "align": "left",
+          "text": "Distinct Oscillator"
+        },
+        "oneOf": [
+          {
+            "const": 2
+          },
+          {
+            "const": 100
+          },
+          500,
+          300
+        ],
+        "default": 100,
+        "role": "oscillator",
+        "block": "blockH",
+        "unit": {
+          "text": "MHz",
+          "factor": "1"
+        },
+        "description": "Oscillator with distinct frequencies",
+        "size": {
+          "width": 90,
+          "height": 45
+        },
+        "outputTargets": [
+          "rectangular_1"
+        ],
+        "isTrustZone": false
+      },
+      {
+        "id": "rectangular_1",
+        "name": "Rectangular Shape 1",
+        "position": {
+          "x": 170,
+          "y": 180
+        },
+        "type": "rectangularShape",
+        "size": {
+          "width": 120,
+          "height": 60
+        },
+        "label": {
+          "align": "center",
+          "text": "Rectangular"
+        },
+        "default": 1,
+        "description": "Rectangular shape element",
+        "outputTargets": [],
+        "isTrustZone": false
+      },
+      {
+        "id": "fractional_1",
+        "name": "Fractional Value 1",
+        "position": {
+          "x": 190,
+          "y": 200
+        },
+        "type": "fractionalValue",
+        "label": {
+          "align": "right",
+          "text": "Fractional"
+        },
+        "default": 1.5,
+        "role": "fractional",
+        "block": "blockI",
+        "outputTargets": [],
+        "description": "Fractional value element",
+        "size": {
+          "width": 100,
+          "height": 50
+        },
+        "isTrustZone": true,
+        "min": 1,
+        "max": 2,
+        "outOfRange": false,
+        "fracDivisor": {
+          "base": 10,
+          "power": 1
+        },
+        "multiplicatorFactor": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "11111111-1111-1111-1111-111111111111",
+        "sourceTaskId": "fixed_1_output",
+        "targetTaskId": "editable_1_input",
+        "isVirtual": false
+      },
+      {
+        "id": "22222222-2222-2222-2222-222222222222",
+        "sourceTaskId": "editable_1_output",
+        "targetTaskId": "multiplier_1_input",
+        "isVirtual": false
+      },
+      {
+        "id": "33333333-3333-3333-3333-333333333333",
+        "sourceTaskId": "discrete_1_output",
+        "targetTaskId": "divider_1_input",
+        "isVirtual": false
+      },
+      {
+        "id": "55555555-5555-5555-5555-555555555555",
+        "sourceTaskId": "divider_1_output",
+        "targetTaskId": "variable_1_input",
+        "isVirtual": false
+      },
+      {
+        "id": "77777777-7777-7777-7777-777777777777",
+        "sourceTaskId": "variable_1_output",
+        "targetTaskId": "distinct_1_input",
+        "isVirtual": false
+      },
+      {
+        "id": "88888888-8888-8888-8888-888888888888",
+        "sourceTaskId": "distinct_1_output",
+        "targetTaskId": "rectangular_1_input",
+        "isVirtual": false
+      },
+      {
+        "id": "99999999-9999-9999-9999-999999999999",
+        "sourceTaskId": "fixed_1_output",
+        "targetTaskId": "multiplexor_1_input",
+        "isVirtual": false
+      },
+      {
+        "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+        "sourceTaskId": "editable_1_output",
+        "targetTaskId": "multiplexor_1_input",
+        "isVirtual": false
+      },
+      {
+        "id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+        "sourceTaskId": "multiplexor_1",
+        "targetTaskId": "fixed_1__fixedSource_input",
+        "isVirtual": false
+      },
+      {
+        "id": "dddddddd-cccc-dddd-dddd-dddddddddddd",
+        "sourceTaskId": "multiplexor_1",
+        "targetTaskId": "editable_1__editableValue_input",
+        "isVirtual": false
+      },
+      {
+        "id": "ddeddddd-dddd-dddd-dddd-dddddddddddd",
+        "sourceTaskId": "multiplexor_1_output",
+        "targetTaskId": "fractional_1_input",
+        "isVirtual": false
+      },
+      {
+        "id": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+        "sourceTaskId": "multiplexor_1_output",
+        "targetTaskId": "variable_1_input",
+        "isVirtual": false
+      }
+    ]
+  }
+}
